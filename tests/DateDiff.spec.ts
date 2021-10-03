@@ -20,11 +20,11 @@ describe('test difference between two dates', function() {
 
         testDataSet.forEach((data, index) => {
             let result = DateDiff.diff(data.startDate, data.endDate);
-            console.log(`result is ${result}`);
+            // converting to moment and getting diff 
             const myMomentObject1 = moment(data.startDate, 'DD-MM-YYYY');
             const myMomentObject2 = moment(data.endDate, 'DD-MM-YYYY');
             let momentResult= myMomentObject2.diff(myMomentObject1,'days')
-            console.log(`moment result is ${momentResult}`);
+            // subtracting one day from the requirement and comparing with the result from DateDiff
             expect(result).toBe(momentResult-1)
         })
   });
